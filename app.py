@@ -26,7 +26,8 @@ questions = {
 
 @app.route('/')
 def home():
-    return render_template('index.html', questions=questions)
+    label = "Likely to seek treatment" if prediction == 1 else "NOT likely to seek treatment"
+    return render_template('result.html', prediction=label)
 
 @app.route('/predict_form', methods=['POST'])
 def predict_form():
@@ -34,9 +35,11 @@ def predict_form():
         input_values = [int(request.form.get(key)) for key in questions]
         features = np.array(input_values).reshape(1, -1)
         prediction = model.predict(features)[0]
-        return render_template('result.html', prediction=int(prediction))
+        label = "Likely to seek treatment" if prediction == 1 else "NOT likely to seek treatment"
+        return render_template('result.html', prediction=label)
     except Exception as e:
         return f"Error during prediction: {e}"
+
 
 @app.route('/predict', methods=['POST'])
 def predict():

@@ -52,12 +52,17 @@
 <body>
     <h1>Mental Health Outcome Predictor</h1>
     <fmrm action="/predict" method="post">
-        {% for var, label in questions.items() %}
-            <div class="form-group">
-                <label for="{{ var }}">{{ label }} (0 = NO, 1 = YES)</label>
-                <input type="number" id="{{ var }}" name="{{ var }}" min="0" max="1" required>
-            </div>
-        {% endfor %}
+        {% for key, question in questions.items() %}
+	    <div class="form-group">
+        	<label for="{{ key }}">{{ question }}</label>
+        	<select name="{{ key }}" required>
+            	    <option value="" disabled selected>Select</option>
+                    <option value="1">Yes (1)</option>
+            	    <option value="0">No (0)</option>
+        	</select>
+  	    </div>
+	{% endfor %}
+
         <button type="submit">Predict</button>
     </form>
 </body>
