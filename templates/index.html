@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mental Health Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 40px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            display: inline-block;
+            background: white;
+            padding: 30px 50px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 12px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin: 15px 0;
+            text-align: left;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            font-size: 1em;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 25px;
+            font-size: 1em;
+            background-color: #007BFF;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mental Health Outcome Predictor</h1>
+    <fmrm action="/predict" method="post">
+        {% for var, label in questions.items() %}
+            <div class="form-group">
+                <label for="{{ var }}">{{ label }} (0 = NO, 1 = YES)</label>
+                <input type="number" id="{{ var }}" name="{{ var }}" min="0" max="1" required>
+            </div>
+        {% endfor %}
+        <button type="submit">Predict</button>
+    </form>
+</body>
+</html>
+
