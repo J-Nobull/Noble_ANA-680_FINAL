@@ -51,7 +51,7 @@
 </head>
 <body>
     <h1>Mental Health Outcome Predictor</h1>
-    <fmrm action="/predict" method="post">
+    <form action="/predict" method="post">
         {% for key, question in questions.items() %}
 	    <div class="form-group">
         	<label for="{{ key }}">{{ question }}</label>
