@@ -26,8 +26,7 @@ questions = {
 
 @app.route('/')
 def home():
-    label = "Likely to seek treatment" if prediction == 1 else "NOT likely to seek treatment"
-    return render_template('result.html', prediction=label)
+    return render_template('index.html', questions=questions)
 
 @app.route('/predict_form', methods=['POST'])
 def predict_form():
@@ -40,7 +39,6 @@ def predict_form():
     except Exception as e:
         return f"Error during prediction: {e}"
 
-
 @app.route('/predict', methods=['POST'])
 def predict():
     try:
@@ -50,4 +48,3 @@ def predict():
         return jsonify({'prediction': int(prediction)})
     except Exception as e:
         return jsonify({'error': str(e)})
-
