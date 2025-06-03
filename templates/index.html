@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mental Health Prediction</title>
     <style>
         body {
@@ -29,7 +30,7 @@
             font-weight: bold;
             margin-bottom: 5px;
         }
-        input[type="number"] {
+        select {
             width: 100%;
             padding: 8px;
             font-size: 1em;
@@ -53,18 +54,17 @@
     <h1>Mental Health Outcome Predictor</h1>
     <form action="/predict" method="post">
         {% for key, question in questions.items() %}
-	    <div class="form-group">
-        	<label for="{{ key }}">{{ question }}</label>
-        	<select name="{{ key }}" required>
-            	    <option value="" disabled selected>Select</option>
-                    <option value="1">Yes (1)</option>
-            	    <option value="0">No (0)</option>
-        	</select>
-  	    </div>
-	{% endfor %}
+        <div class="form-group">
+            <label for="{{ key }}">{{ question }}</label>
+            <select name="{{ key }}" required>
+                <option value="" disabled selected>Select</option>
+                <option value="1">Yes (1)</option>
+                <option value="0">No (0)</option>
+            </select>
+        </div>
+        {% endfor %}
 
         <button type="submit">Predict</button>
     </form>
 </body>
 </html>
-
