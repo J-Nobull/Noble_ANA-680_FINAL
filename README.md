@@ -5,6 +5,7 @@ It includes:
 - A Jupyter Notebook for data analysis
 - A Flask web application
 - Supporting files for deployment and reproducibility
+- Datafiles
 
 ## Contents
 
