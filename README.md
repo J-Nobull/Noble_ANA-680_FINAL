@@ -1,6 +1,6 @@
-# Noble_ANA-680_FINAL
+# An analysis of the mental health in tech survey dataset (HEALTH.csv). Apply statistical and machine learning techniques to understand patterns and predict mental health.
 
-This repository contains the final project for ANA 680 by J-Nobull.  
+This repository contains the final project for ANA 680  
 It includes:  
 - A Jupyter Notebook for data analysis
 - A Flask web application
