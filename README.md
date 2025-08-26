@@ -43,7 +43,8 @@ To run the Flask app locally:
 ```bash
 python app.py
 ```
-The app will be available at `http://127.0.0.1:5000/`.
+The app will be available at -----
+The app is no longer deployed; cost prohibitive to leave idle
 
 ### Docker
 
